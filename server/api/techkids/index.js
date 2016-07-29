@@ -38,7 +38,6 @@ router.post('/post-course',  function(req, res){
 	        // next(); // make sure we go to the next routes and don't stop here
 	      }
 	    });
-
     }
 });
 router.post('/post-event',  function(req, res){
@@ -81,7 +80,6 @@ router.post('/post-instructor',   function(req, res){
 	        // next(); // make sure we go to the next routes and don't stop here
 	      }
 	    });
-
     }
 });
 
@@ -158,6 +156,7 @@ router.post('/delete-instructor', function(req, res){
 //edit
 router.post('/edit-course', function(req, res){
     var token = req.body.token || req.query.token || req.headers['x-access-token'];
+    console.log(req.headers['x-access-token']);
     // decode token
 	  if (token) {
 	    // verifies secret and checks exp
@@ -179,28 +178,7 @@ router.post('/edit-course', function(req, res){
     }
 });
 
-router.post('/edit-event', function(req, res){
-    var token = req.body.token || req.query.token || req.headers['x-access-token'];
-    // decode token
-	  if (token) {
-	    // verifies secret and checks exp
-	    jwt.verify(token, superSecret, function(err, decoded) {
 
-	      if (err) {
-	        res.status(403).send({
-	        	success: false,
-	        	message: 'Failed to authenticate token.'
-	    	});
-	      } else {
-	        // if everything is good, save to request for use in other routes
-	        req.decoded = decoded;
-            controller.editEvent(req, res);
-	        // next(); // make sure we go to the next routes and don't stop here
-	      }
-	    });
-
-    }
-});
 
 router.post('/edit-instructor', function(req, res){
     var token = req.body.token || req.query.token || req.headers['x-access-token'];
@@ -221,7 +199,6 @@ router.post('/edit-instructor', function(req, res){
 	        // next(); // make sure we go to the next routes and don't stop here
 	      }
 	    });
-
     }
 });
 

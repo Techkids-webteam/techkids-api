@@ -24,7 +24,8 @@ export function login(req, res){
                 }, superSecret, {
                   expiresIn: '24h' // expires in 24 hours
             });
-            res.json({
+          res.set('token', token);
+          res.json({
                 mess: "success!",
                 token : token
             });

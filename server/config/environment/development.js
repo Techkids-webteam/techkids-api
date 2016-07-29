@@ -7,6 +7,6 @@ module.exports = {
   // Seed database on startup
   seedDB: true,
 
-  mongoURI: "mongodb://admin:admin@ds019960.mlab.com:19960/techkidsvn",
+  mongoURI: "mongodb://admin:admin@localhost:27017/techkidsvn",
   'secret':'ilovescotchscotchyscotchscotch'
 };

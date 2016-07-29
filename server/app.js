@@ -8,12 +8,18 @@ import express from 'express';
 import config from './config/environment';
 import http from 'http';
 import mongoose from 'mongoose';
+var path = require('path');
 
 // Setup server
 var app = express();
+
 var server = http.createServer(app);
 require('./config/express')(app);
 require('./routes')(app);
+app.use(express.static('public'));
+app.use('/img',express.static(path.join(__dirname, 'public/images')));
+
+
 
 // Connect mongo
 mongoose.connect(config.mongoURI);

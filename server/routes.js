@@ -13,6 +13,7 @@ export default function(app) {
   app.use('/api/user', require('./api/user'));
   app.use('/api/blog', require('./api/blog'));
 
+
   // All undefined asset or api routes should return a 404
   app.route('/:url(api|auth|components|app|bower_components|assets)/*')
    .get(errors[404]);

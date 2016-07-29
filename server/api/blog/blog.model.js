@@ -1,4 +1,4 @@
-/**
+  /**
  * Created by Admin on 19/07/2016.
  */
 'use strict';
@@ -10,5 +10,12 @@ var BlogSchema = mongoose.Schema({
   category: String,
   date: String,
   content: String,
-  view: Float64Array,
-});
+  view: Number,
+  image_url: String
+}, {
+  collection : 'Blog'
+  }
+);
+
+export default mongoose.model('Blog', BlogSchema);
+

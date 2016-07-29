@@ -20,6 +20,7 @@
     "method-override": "^2.3.5",
     "mongoose": "^4.4.10",
     "morgan": "~1.6.1",
+    "multer": "^1.1.0",
     "serve-favicon": "^2.3.0"
   },
   "devDependencies": {
@@ -88,7 +89,10 @@
     "requirejs": "~2.1.11",
     "phantomjs": "^1.9.18",
     "proxyquire": "^1.0.1",
-    "supertest": "^1.1.0"
+    "supertest": "^1.1.0",
+    "should": "~7.1.0",
+    "mocha": "~2.3.3",
+    "supertest": "~1.1.0"
   },
   "engines": {
     "node": "^4.2.3",
