@@ -33,5 +33,5 @@ export function uploadImage(req, res){
 }
 
 export function showImage(req, res) {
-  res.sendFile(__dirname + "/images/" + req.params.name);
+  res.sendFile(__dirname + "http://techkids.vn:9196/images/" + req.params.name);
 }
