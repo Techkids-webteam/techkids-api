@@ -33,7 +33,7 @@ router.post('/post-course',  function(req, res){
 	    	});
 	      } else {
 	        // if everything is good, save to request for use in other routes
-	        req.decoded = decoded;
+	          req.decoded = decoded;
             controller.postCourse(req, res);
 	        // next(); // make sure we go to the next routes and don't stop here
 	      }
