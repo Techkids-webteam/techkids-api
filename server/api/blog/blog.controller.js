@@ -26,23 +26,15 @@ export function getCategories(req, res) {
   });
 }
 
-// export function getTrendingBlog(req, res) {
-//   Blog.find({
-//       skip:0, // Starting Row
-//       limit:3, // Ending Row
-//       sort:{
-//         view: -1 //Sort by Date Added DESC
-//       }
-//     }
-//     ,function (err, data) {
-//     if(err) {
-//       console.log(err);
-//       res.send(err);
-//     } else {
-//       res.json({data});
-//     }
-//   });
-// }
+export function getTrendingBlog(req, res) {
+  Blog.find().limit(3).sort('-view').exec(function (err, blog) {
+      if(err) {
+        console.log(err);
+        res.send(err);
+      }
+      else res.json({blog});
+    });
+}
 
 //get by id
 export function getBlogById(req, res){

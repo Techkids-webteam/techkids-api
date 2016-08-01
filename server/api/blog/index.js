@@ -14,7 +14,7 @@ router.get('/getCategories', controller.getCategories);
 
 //get three most view blog
 
-// router.get('/getTrendingBlog', controller.getTrendingBlog);
+router.get('/getTrendingBlog', controller.getTrendingBlog);
 
 //get one
 router.get('/getBlog/:id', controller.getBlogById);
