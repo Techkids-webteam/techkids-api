@@ -20,7 +20,6 @@ app.use(express.static('public'));
 app.use('/img',express.static(path.join(__dirname, 'public/images')));
 
 
-
 // Connect mongo
 mongoose.connect(config.mongoURI);
 var db = mongoose.connection;
