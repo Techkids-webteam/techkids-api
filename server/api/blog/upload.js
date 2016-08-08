@@ -27,7 +27,7 @@ export function uploadImage(req, res){
     if(err) {
       return res.json({mess: err});
     }
-    res.json({url:  "http://techkids.vn:9196/server/api/blog/images/"+file_name});
+    res.json({url:  "/images/"+file_name});
     console.log(upload);
   });
 }
