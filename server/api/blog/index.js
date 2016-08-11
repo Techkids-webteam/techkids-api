@@ -37,7 +37,7 @@ router.post('/deleteCategory', controller.deleteCategory);
 //image
 router.get('/images/:name', uploadImage.showImage);
 router.post('/uploadImage', uploadImage.uploadImage);
-
+router.get('/getAllImages', uploadImage.getAllImages);
 
 module.exports = router;
 
