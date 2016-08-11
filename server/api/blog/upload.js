@@ -31,7 +31,7 @@ export function uploadImage(req, res){
       return res.json({mess: err});
     }
     else {
-      file_name = "http://techkids.vn:9196/server/api/blog/images/" + file_name;
+      file_name = "techkids.vn:9196/server/api/blog/images/" + file_name;
       var newImg = {
         url : file_name
       };
