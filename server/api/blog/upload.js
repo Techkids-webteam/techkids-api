@@ -28,7 +28,6 @@ export function uploadImage(req, res){
       return res.json({mess: err});
     }
     res.json({url:  "/images/"+file_name});
-    console.log(upload);
   });
 }
 
