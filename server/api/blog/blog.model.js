@@ -8,12 +8,16 @@ var BlogSchema = mongoose.Schema({
   title: String,
   author: String,
   category: String,
-  date: String,
   content: String,
   view: Number,
   image_url: String
+},{
+  timestamps: true
 }, {
   collection : 'Blog'
+  },
+  {
+
   }
 );
 

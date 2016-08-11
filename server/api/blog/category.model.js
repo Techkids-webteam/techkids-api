@@ -8,7 +8,11 @@ var CategorySchema = mongoose.Schema({
     title: String,
     description: String,
     countPost: Number
-  }, {
+  },
+  {
+    timestamps: true
+  },
+  {
     collection : 'category'
   }
 );

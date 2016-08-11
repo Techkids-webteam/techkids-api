@@ -67,7 +67,6 @@ export function postBlog(req, res) {
     title: req.body.title,
     author: req.body.author,
     category: req.body.category,
-    date: req.body.date,
     content: req.body.content,
     view: 0,
     image_url: req.body.image_url
