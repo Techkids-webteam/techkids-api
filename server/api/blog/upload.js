@@ -31,14 +31,14 @@ export function uploadImage(req, res){
       return res.json({mess: err});
     }
     else {
-      file_name = "techkids.vn:9196/api/blog/images/" + file_name;
+      var response = "techkids.vn:9196/api/blog/images/" + file_name;
       var newImg = {
-        url : file_name
+        url : response
       };
       Image.create(newImg, function (err, data) {
         console.log(data);
       });
-      res.json({url:  file_name});
+      res.json({url:  response});
     }
   });
 }
