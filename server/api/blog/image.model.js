@@ -6,7 +6,10 @@ import mongoose from 'mongoose';
 
 var ImageSchema = mongoose.Schema({
     url: String
-  }, {
+  },{
+  timestamps: true
+  },
+  {
     collection : 'images'
   }
 );
