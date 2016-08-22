@@ -28,7 +28,7 @@ export function getBlogsByPage(req, res) {
 
 export function getPage(req, res) {
   Blog.count(function (err, number) {
-    var page =  Math.round( number / 8);
+    var page =  Math.round( number / 8) + 1;
     console.log(page);
     var listpage = []
     for(var i=1; i<= page; i++){
