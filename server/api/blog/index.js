@@ -10,10 +10,12 @@ var express = require('express'),
 var router = express.Router();
 //get all
 router.get('/getBlogs', controller.getBlogs);
+router.get('/getBlogsByPage/:page', controller.getBlogsByPage);
+router.get('/getBlogsByCategory/:category', controller.getBlogsByCategory);
+
 router.get('/getCategories', controller.getCategories);
 
 //get three most view blog
-
 router.get('/getTrendingBlog', controller.getTrendingBlog);
 
 //get one

@@ -11,6 +11,7 @@ var path = require('path');
 var storage =   multer.diskStorage({
   destination: function (req, file, callback) {
     callback(null, './api/blog/images');
+    console.log("ab" +file);
   },
   filename: function (req, file, callback) {
     file_name = file.originalname.slice(0, file.originalname.indexOf('.')) + '_' +  Date.now() + file.originalname.slice(file.originalname.indexOf('.'), file.originalname.length);

@@ -17,6 +17,24 @@ export function getBlogs(req, res) {
   });
 }
 
+export function getBlogsByPage(req, res) {
+  Blog.find().sort('createdAt').limit(8).skip((req.params.page-1)*8).exec(function (err, blog) {
+    if(err){
+      res.send(err);
+    }
+    else res.json(blog);
+  })
+}
+
+export function getBlogsByCategory(req, res) {
+  Blog.find({'category' : req.params.category}).sort('createdAt').exec(function (err, blog) {
+    if(err){
+      res.send(err);
+    }
+    else res.json(blog);
+  })
+}
+
 export function getCategories(req, res) {
   Category.find(function (err, category) {
     if(err){
