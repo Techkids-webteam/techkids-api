@@ -22,10 +22,7 @@ export function getBlogsByPage(req, res) {
     if(err){
       res.send(err);
     }
-    else res.json({
-      items: blog,
-      page: page
-    });
+    else res.json(blog);
   });
 }
 
