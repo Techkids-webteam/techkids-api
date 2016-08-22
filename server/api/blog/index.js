@@ -12,6 +12,7 @@ var router = express.Router();
 router.get('/getBlogs', controller.getBlogs);
 router.get('/getBlogsByPage/:page', controller.getBlogsByPage);
 router.get('/getBlogsByCategory/:category', controller.getBlogsByCategory);
+router.get('/getPage', controller.getPage);
 
 router.get('/getCategories', controller.getCategories);
 

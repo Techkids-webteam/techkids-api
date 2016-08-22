@@ -22,7 +22,22 @@ export function getBlogsByPage(req, res) {
     if(err){
       res.send(err);
     }
-    else res.json(blog);
+    else res.json({
+      items: blog,
+      page: page
+    });
+  });
+}
+
+export function getPage(req, res) {
+  Blog.count(function (err, number) {
+    var page =  Math.round( number / 8);
+    console.log(page);
+    var listpage = []
+    for(var i=1; i<= page; i++){
+      listpage.push(i);
+    }
+    res.json(listpage);
   })
 }
 
