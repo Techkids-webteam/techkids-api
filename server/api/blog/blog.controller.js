@@ -9,7 +9,7 @@ import Category from './category.model'
 
 //get all
 export function getBlogs(req, res) {
-  Blog.find().sort('createdAt').exec(function (err, blog) {
+  Blog.find().sort('-createdAt').exec(function (err, blog) {
     if(err){
       res.json(err);
     }
