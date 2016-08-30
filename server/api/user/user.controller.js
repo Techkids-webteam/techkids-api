@@ -1,37 +1,45 @@
-'use strict';
-
-import User from './user.model';
-
-var config =require('../../config/environment/development');
-var jwt = require('jsonwebtoken');
-var md5 = require('js-md5');
-
-
-var superSecret = config.secret;
-
-
-export function login(req, res){
-    var isLogin = false;
-    User.findOne({user : req.username}, function(err, data){
-        if(data.password == md5(req.body.password) ){
-            isLogin = true;
-        }
-
-        if(isLogin == true){
-            console.log(data.username);
-            var token = jwt.sign({
-                username: data.username
-                }, superSecret, {
-                  expiresIn: '24h' // expires in 24 hours
-            });
-          res.set('token', token);
-          res.json({
-                mess: "success!",
-                token : token
-            });
-        } else {
-            res.json({mess: "login fail!"})
-        }
-    });
-
-}
+// 'use strict';
+// var passport = require('../../config/passport');
+// import User from './user.model'
+//
+// export function signup(req, res) {
+//   if (!req.body.name || !req.body.password) {
+//     res.json({success: false, msg: 'Please pass name and password.'});
+//   } else {
+//     var newUser = new User({
+//       name: req.body.name,
+//       password: req.body.password
+//     });
+//     // save the user
+//     newUser.save(function (err) {
+//       if (err) {
+//         return res.json({success: false, msg: 'Username already exists.'});
+//       }
+//       res.json({success: true, msg: 'Successful created new user.'});
+//     });
+//   }
+// }
+//
+// // export function signin(req, res) {
+// //   User.findOne({
+// //     name: req.body.name
+// //   }, function(err, user) {
+// //     if (err) throw err;
+// //
+// //     if (!user) {
+// //       res.send({success: false, msg: 'Authentication failed. User not found.'});
+// //     } else {
+// //       // check if password matches
+// //       user.comparePassword(req.body.password, function (err, isMatch) {
+// //         if (isMatch && !err) {
+// //           // if user is found and password is right create a token
+// //           var token = jwt.encode(user, config.secret);
+// //           // return the information including token as JSON
+// //           res.json({success: true, token: 'JWT ' + token});
+// //         } else {
+// //           res.send({success: false, msg: 'Authentication failed. Wrong password.'});
+// //         }
+// //       });
+// //     }
+// //   });
+// // }

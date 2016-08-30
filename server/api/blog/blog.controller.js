@@ -30,7 +30,7 @@ export function getPage(req, res) {
   Blog.count(function (err, number) {
     var page = 0;
     if(number/8 - Math.floor(number/8) == 0) page = number / 8;
-    else page =  Math.round( number / 8) + 1;
+    else page =  Math.floor( number / 8) + 1;
     console.log(page);
     var listpage = [];
     for(var i=1; i<= page; i++){
@@ -47,6 +47,41 @@ export function getBlogsByCategory(req, res) {
     }
     else res.json(blog);
   })
+}
+//
+// var addFunc = function add(a, b, callback){
+//   var c = a + b;
+//   callback(c);
+// }
+// addFunc(3,4, function(c){
+//   console.log(c);
+// })
+
+
+export function getBlogsByCategoryAndPage(req, res) {
+  var page = 0;
+  var findBlog = function (page) {
+    Blog.find({'category' : req.params.category}).sort('-createdAt').limit(8).skip((req.params.page-1)*8).exec(function (err, blog) {
+      if(err){
+        res.send(err);
+      }
+      else {
+        res.json({
+          Page: req.params.page,
+          TotalPage: page,
+          items: blog
+        });
+      }
+    })
+  };
+  var count = function(findBlog){
+    Blog.count(function (err, number) {
+      if(number/8 - Math.floor(number/8) == 0) page = number / 8;
+      else page =  Math.floor( number / 8) + 1;
+      findBlog(page);
+    });
+  };
+  count(findBlog);
 }
 
 export function getCategories(req, res) {

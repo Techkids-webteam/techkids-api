@@ -11,8 +11,12 @@ var router = express.Router();
 //get all
 router.get('/getBlogs', controller.getBlogs);
 router.get('/getBlogsByPage/:page', controller.getBlogsByPage);
-router.get('/getBlogsByCategory/:category', controller.getBlogsByCategory);
+router.get('/getBlogsByCategory/:category/:page',function (req, res) {
+  if(!req.params.page) controller.getBlogsByCategory(req, res);
+  else controller.getBlogsByCategoryAndPage(req, res);
+});
 router.get('/getPage', controller.getPage);
+
 
 router.get('/getCategories', controller.getCategories);
 

@@ -10,7 +10,7 @@ import path from 'path';
 export default function(app) {
   // Insert routes below
   app.use('/api/techkids', require('./api/techkids'));
-  app.use('/api/user', require('./api/user'));
+  // app.use('/api/user', require('./api/user'));
   app.use('/api/blog', require('./api/blog'));
 
 
