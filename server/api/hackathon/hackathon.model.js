@@ -9,9 +9,9 @@ var TeamSchema = mongoose.Schema({
     point: {
       like: Number,
       share: Number,
-      sum: Numer,
+      sum: Number,
       user_like: []
-    } 
+    }
   },
   {
     collection : 'hackathon-team'
