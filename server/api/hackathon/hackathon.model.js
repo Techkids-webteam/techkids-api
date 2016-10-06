@@ -6,11 +6,10 @@ var TeamSchema = mongoose.Schema({
     member: [],
     content: String,
     group_img: [],
-    point: {
-      like: Number,
-      share: Number,
-      sum: Number,
-      user_like: []
+    like: {type: Number, default: 0},
+    usr: [],
+    is_like: {
+      type: Boolean
     }
   },
   {
