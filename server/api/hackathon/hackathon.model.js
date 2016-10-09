@@ -10,7 +10,9 @@ var TeamSchema = mongoose.Schema({
     usr: [],
     is_like: {
       type: Boolean
-    }
+    },
+    video : String,
+    team_name: String
   },
   {
     collection : 'hackathon-team'
